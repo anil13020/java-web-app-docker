@@ -1,18 +1,63 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: javawebapp-ENVIRONMENT-BUILD_NUMBER
-spec:
-  replicas: 1
+  name: javawebappdeployment
+spec: 
+  selector:
+    matchLabels:
+      app: javawebapp
   template:
-    metadata:
+    metadata: 
+      name: javawebapppod
       labels:
         app: javawebapp
-        version: "BUILD_NUMBER"
     spec:
       containers:
-      - name: javawebapp-ENVIRONMENT-BUILD_NUMBER
-        image: IMAGE
-        imagePullPolicy: IfNotPresent
+      - name: javawebapp
+        image: anil13020:java-web-app-jenkins:
         ports:
         - containerPort: 8080
+        reources: 
+          requests: 
+            cpu: 200m
+            memory: 512Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: javawebappsvc
+spec: 
+  type: NodePort
+  selector:
+    app: javawebapp
+  ports:
+  - port: 80
+    targetPort: 8080
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata: 
+  name: javawebdeploymenthpa 
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: javawebappdeployment
+  minReplicas: 2
+  maxReplicas: 5
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: utilization
+        averageUtilization: 40
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: utilization
+        averageUtilization: 40
