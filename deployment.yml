@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: javawebapp
-        image: anil13020:java-web-app-jenkins:
+        image: anil13020:java-web-app-jenkins:5
         ports:
         - containerPort: 8080
         reources: 
