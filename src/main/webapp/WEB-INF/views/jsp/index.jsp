@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Maven + Sanil</title>
+<title>anil web page</title>
 
 <spring:url value="/resources/core/css/hello.css" var="coreCss" />
 <spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
@@ -24,7 +24,7 @@
 		<h1>${title}</h1>
 		<p>
 			<c:if test="${not empty msg}">
-				Hello ${msg}
+				Hello everyone
 			</c:if>
 
 			<c:if test="${empty msg}">
@@ -40,7 +40,7 @@
 
 	<div class="row">
 		<div class="col-md-8">
-			<h2>Welcome To Anil Technologies, Marathahalli, Bengaluru,Karnataka.</h2>
+			<h2>Welcome To Anil </h2>
 			<h3>Contact @ +91-9177087253</h3>
 		</div>	
 	</div>
@@ -48,7 +48,7 @@
 
 	<hr>
 	<footer>
-		<p>&copy; Mithun Technologies 2019</p>
+		<p>&copy; new world 2019</p>
 	</footer>
 </div>
 
