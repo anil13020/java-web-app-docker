@@ -31,7 +31,7 @@
 				Welcome Welcome!
 			</c:if>
 		<p>
-			<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+			<a class="btn btn-primary btn-lg" href="#" role="button">Click to know</a>
 		</p>
 	</div>
 </div>
@@ -40,7 +40,7 @@
 
 	<div class="row">
 		<div class="col-md-8">
-			<h2>connect To Anil </h2>
+			<h2>Connect To Anil </h2>
 			<h3>Contact @ +91-9177087253</h3>
 		</div>	
 	</div>
